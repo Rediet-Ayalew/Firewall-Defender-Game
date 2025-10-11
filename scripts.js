@@ -150,5 +150,3 @@ function handleUserChoice(userChoice) {
 startRound(); // start the first round when the page loads
 
 
-
-
