@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firewall_Defender</title>
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="style.css">   
 </head>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <body>
+
     <!-- Navbar -->
     <nav>
         <div class="nav-item">
-            <span class="score-display" >Score: 42</span>
+            <span id="score" class="score-display" >Score: 0</span>
          </div>
         <div class="nav-item">
             <a onclick="location.href='index.html'">Exit</a>
         </div>
-    </div>
-</nav>
+    </nav>
+    
     <!-- Background animation wrapper -->
     <div class="backwrap gradient">
   <div class="back-shapes">
@@ -56,19 +56,36 @@
       <span class="floating square" style="top:11.542390194075587%;left:91.51041666666667%;animation-delay:-0.1s;"></span>
   </div>
 </div>
-    <div class="button-row" style="position:relative; z-index:1;">
-        <a button class="button">Timer: 00:05</a>
+    <div class="messageBox" style="position:relative; z-index:1;">
+        <a id="timerDisplay" class="messageText">Timer: 00:05</a> 
     </div>
+
+    <div id="messageBox" class="message-box" style="position:relative; z-index:1;">
+            <p id="messageText" style="color:rgb(2, 247, 125); font-weight:bold" class="messageText">Hello</p>
+    </div>
+    
     <!-- main page -->
     <main style ="position:relative; z-index:2;">
     <section id="container" class="py-5">
         <div class="container">
-            <img src="Scam.jpg" alt-text="Scam Image" style="width:400px;height:300px;">   
+            <img id="gameImage" src="Scam.jpg" alt-text="Image" style="width:455px;height:370px;">   
         </div>
     </section>
     <div class="button-row" style="position:relative; z-index:2;">
-        <a button class="button">Click</a>
-        <a button class="button">Trick</a>
+        <button class="button" onclick="handleUserChoice('Click'); ">Click</button>
+        <button class="button"onclick="handleUserChoice('Trick')">Trick</button>
     </div>
+    <!-- Sound effect -->
+    <audio autoplay loop>
+        <source src="game-music.mp3" type="audio/mpeg">
+    </audio>
+    <script src="scripts.js"></script> 
+    <div id="endGameModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h2 id="finalScore">Final Score: 0</h2>
+        <p id="modalMessage">Good job!</p>
+        <button class="button" onclick="restartGame()">Restart Game</button>
+    </div>
+</div>
 </body>
 </html>
